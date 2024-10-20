@@ -18,7 +18,7 @@ public class ProgramControllerImpl implements ProgramController {
         return "programList" + level.name();
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/{id}")
     public String getById(@PathVariable Long id) {
         return "programById" + id;
     }
@@ -27,5 +27,20 @@ public class ProgramControllerImpl implements ProgramController {
     public String getIndividual() {
         // TODO: autogenerate by artificial intelligence
         return "individualProgram";
+    }
+
+    @PostMapping("/create")
+    public String create() {
+        return "create";
+    }
+
+    @PutMapping("/edit")
+    public String edit() {
+        return "edit";
+    }
+
+    @DeleteMapping("/delete")
+    public String delete() {
+        return "delete";
     }
 }

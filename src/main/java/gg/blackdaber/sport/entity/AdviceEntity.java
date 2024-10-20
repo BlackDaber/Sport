@@ -1,13 +1,11 @@
 package gg.blackdaber.sport.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Entity
 @Table(name = "sp_advice")
+@Getter
 @Builder
 @ToString
 @AllArgsConstructor

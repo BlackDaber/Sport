@@ -8,12 +8,31 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
 @Service
 public class AdviceServiceImpl implements AdviceService {
 
     private final AdviceRepository adviceRepository;
+
+    @Override
+    public Collection<AdviceDto> getAll() {
+        return this.adviceRepository.findAll()
+                .stream()
+                .map(entity -> new AdviceDto(entity.getTelegram(), entity.getName()))
+                .toList();
+    }
+
+    @Override
+    public AdviceDto getById(Long id) {
+        return this.adviceRepository.findById(id)
+                .stream()
+                .map(entity -> new AdviceDto(entity.getTelegram(), entity.getName()))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException("Записи с таким айди %s не найдено".formatted(id)));
+    }
 
     @Override
     public void create(AdviceDto dto) {
@@ -23,5 +42,11 @@ public class AdviceServiceImpl implements AdviceService {
                         .telegram(dto.telegram())
                         .build()
         );
+    }
+
+    @Override
+    public String delete(Long id) {
+        this.adviceRepository.deleteById(id);
+        return "Запись успешно удалена";
     }
 }

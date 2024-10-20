@@ -7,8 +7,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 @Entity
 @Table(name = "sp_program")
@@ -26,5 +25,5 @@ public class ProgramEntity {
     private ProgramType type;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "programEntity")
-    private List<TrainingEntity> trainingEntityList = new ArrayList<>();
+    private Collection<TrainingEntity> trainingEntityList;
 }
