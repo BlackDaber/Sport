@@ -16,12 +16,11 @@ dependencies {
     // ----- spring -----
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
-//    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-//    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
 
     // ----- database -----
-//    implementation("org.postgresql:postgresql:42.1.4")
-
+    implementation("org.postgresql:postgresql:42.6.0")
     // TODO: add spring security dependency
 
     // ----- other -----
