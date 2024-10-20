@@ -1,13 +1,15 @@
-package gg.blackdaber.sport.entity.advice;
+package gg.blackdaber.sport.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
-@Table(name = "advice")
+@Table(name = "sp_advice")
 @Builder
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdviceEntity {
@@ -15,9 +17,6 @@ public class AdviceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-
-    @Column(name = "telegram")
     private String telegram;
-    @Column(name = "name")
     private String name;
 }

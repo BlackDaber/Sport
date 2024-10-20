@@ -1,7 +1,7 @@
 package gg.blackdaber.sport.service.advice;
 
 import gg.blackdaber.sport.data.advice.AdviceDto;
-import gg.blackdaber.sport.entity.advice.AdviceEntity;
+import gg.blackdaber.sport.entity.AdviceEntity;
 import gg.blackdaber.sport.repository.advice.AdviceRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +19,8 @@ public class AdviceServiceImpl implements AdviceService {
     public void create(AdviceDto dto) {
         this.adviceRepository.save(
                 AdviceEntity.builder()
-                        .name(dto.getName())
-                        .telegram(dto.getTelegram())
+                        .name(dto.name())
+                        .telegram(dto.telegram())
                         .build()
         );
     }
